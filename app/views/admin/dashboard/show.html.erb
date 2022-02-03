@@ -1,2 +1,6 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Overview of your inventory:</h1>
+<div>
+  <h2>Total number of products in your store: <%= @product_num %></h1>
+  <h2>Total number of catagories in your store: <%= @category_num %></h1>
+  <h2><%= link_to "View your inventory here.", admin_products_path %></h2>
+</div>
