@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to product details from home page after clicking", type: :feature, js: true do
+RSpec.feature "Top right card updates when visitor adds an item to their cart", type: :feature, js: true do
 
   # SETUP
   before :each do
@@ -11,20 +11,20 @@ RSpec.feature "Visitor navigates to product details from home page after clickin
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
         quantity: 10,
-        price: 64.99,
+        price: 64.99
       )
     end
   end
 
-  scenario "They navigate to the product page after clicking on the details button" do
+  scenario "They see all products" do
     visit root_path
 
     # commented out b/c it's for debugging only
     # save_and_open_screenshot
-    find('.btn btn-default pull-right').click 
-
-    expect(page).to have_content('Price')
+    find('.button_to').click 
     save_screenshot
+
+    expect(page).to have_content 'My Cart (1)'
   end
   end
 end
